@@ -287,9 +287,81 @@ const slideContext = `
   </section>
 `;
 
+const slideVirtualDOM = `
+    <section>
+        <h3>Why is browser DOM slow?</h3>
+        <ul>
+          <li>
+            Since the browser DOM is is represented in a tree data structure, Changes and updated are faster
+          </li>
+          <li>
+            But after the change, the updated element and it’s children have to be re-rendered to update the UI.
+          </li>
+          <li>
+            The re-rendering or re-painting of the UI is what makes it slow.
+          </li>
+          <li>
+            The more UI components you have, the more expensive the DOM updates could be, since they would need to be re-rendered for every DOM update.
+          </li>
+        </ul>          
+    </section>  
+`;
+
+const slideRendering = `
+  <section>  
+    <h3>Render and commit phases</h3>
+    <section> 
+      <p>With the current combination of props and state React asking your components to describe what they want their section of the UI to look like in partcular point in time.</p>
+    </section>
+
+    <section>
+      <ul>
+        <li><strong>Important thing to remember is "rendering" is not the same thing as "updating the DOM"</strong></li>       
+        <li>The "Render phase" contains all the work of rendering components and calculating changes</li>
+        <li>The "Commit phase" is the process of applying those changes to the DOM</li>
+      </ul>
+    </section>
+
+    <!--section>
+      <p>In React's upcoming "Concurrent Mode", it is able to pause the work in the rendering phase to allow the browser to process events. React will either resume, throw away, or recalculate that work later as appropriate. Once the render pass has been completed, React will still run the commit phase synchronously in one step.</p>
+    </section-->
+      
+    <section>
+      <p>Remember, rendering is not a bad thing - it's how React knows whether it needs to actually make any changes to the DOM!</p>
+    </section>        
+  </section>
+`;
+
+const slideSources = `
+    <section>
+      <h3>References and sources</h3>
+      <ul>
+          <li><a href="https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/#how-does-react-handle-renders">A (Mostly) Complete Guide to React Rendering Behavior</a></li>
+          <li><a href="https://gist.github.com/sebmarkbage/75f0838967cd003cd7f9ab938eb1958f">The Rules of React</a></li>
+      </ul>
+    </section>
+`;
+
+const slideFollows = `
+ <section>
+      <h3>References and sources</h3>
+      <ul>
+          <li><a href="https://twitter.com/dan_abramov">@dan_abramov</a></li>          
+          <li><a href="https://twitter.com/acdlite">@acdlite</a></li>          
+          <li><a href="https://twitter.com/acemarke">@acemarke</a></li>          
+          <li><a href="https://twitter.com/brian_d_vaughn">@brian_d_vaughn</a></li>          
+          <li><a href="https://twitter.com/lunaruan">@lunaruan</a></li>          
+          <li><a href="https://twitter.com/rickhanlonii">@rickhanlonii</a></li>                    
+      </ul>
+    </section>
+`;
+
 app.innerHTML = `
     <div class="reveal">
       <div class="slides">
+       ${slideRendering}
+       ${slideSources}
+       ${slideVirtualDOM}
        ${slideErrorBoundry}
        ${slideContext}
        ${slideHooks}
